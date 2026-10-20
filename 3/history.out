@@ -1,0 +1,11 @@
+   29  sudo fdisk -l
+   30  sudo fdisk -l /dev/vdb
+   31  sudo fdisk  /dev/vdb
+   32  sudo partprobe /dev/vdb
+   33  lsblk
+   34  sudo mkdir /mnt/vdb_mount 
+   35  sudo mount /dev/vdb1 /mnt/vdb_mount/
+   36  sudo mkfs.ext4 /dev/vdb1
+   37  sudo rmdir /mnt/vdb_mount/
+   38  sudo mkdir /mephi-web
+   39  sudo mount /dev/vdb1 /mephi-web/

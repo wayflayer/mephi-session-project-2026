@@ -1,0 +1,103 @@
+  48  sudo mkdir -p  /data/mephi-2026
+   49  sudo useradd -u 5501 -m user1
+   50  sudo useradd -u 5502 -m user2
+   51  sudo useradd -u 5503 -m user3
+   52  sudo groupadd -g 5500 developers
+   53  sudo groupadd -g 4444 curators
+   54  sudo userdel user1 user2 user3
+   55  sudo userdel user1 
+   56  sudo userdel user2
+   57  sudo userdel user3
+   58  sudo useradd -u 5501 -g developers -m user1
+   59  sudo rmdir  /home/user*
+   60  sudo rm -rf  /home/user*
+   61  sudo useradd -u 5501 -g developers -m user1
+   62  sudo userdel user1 
+   63  sudo rm -rf  /home/user*
+   64  sudo useradd -u 5501 -g developers -m user1
+   65  sudo useradd -u 5502 -g developers -m user2
+   66  sudo useradd -u 5503 -g developers -m user3
+   67  sudo useradd -m curator1
+   68  sudo useradd -m curator2
+   69  sudo usermod -aG curators curator1
+   70  sudo usermod -aG curators curator2
+   71  sudo chowm root:developers /data/mephi-2026/
+   72  sudo chown root:developers /data/mephi-2026/
+   73  sudo chmod 2770 /data/mephi-2026/
+   74  sudo setfacl -m g:developers:rwx /data/mephi-2026/
+   75  sudo setfacl -d -m g:developers:rwx /data/mephi-2026/
+   76  sudo setfacl -m o::--- /data/mephi-2026/
+   77  sudo setfacl -d -m o::--- /data/mephi-2026/
+   78  echo 'umask 0007' | sudo tee /home/user1/.bashrc
+   79  echo 'umask 0007' | sudo tee /home/user2/.bashrc
+   80  echo 'umask 0007' | sudo tee /home/user3/.bashrc
+   81  sudo chgrp -R developers /data/mephi-2026
+   82  sudo chmod -R g+rwX,o-rwx /data/mephi-2026
+   83  sudo setfacl -R -m g:curators:r-X /data/mephi-2026
+   84  getent passwd user1
+   85  getent passwd user2
+   86  getent passwd user3
+   87  getent group curators
+   88  getfacl /data/mephi-2026
+   89  sudo -u user1 touch /data/mephi-2026/test.txt
+   90  sudo -u user2 sh -c "echo test >> /data/mephi-2026/test.txt"
+   91  sudo -u curator1 cat /data/mephi-2026/test.txt
+   92  sudo nano /etc/default/grub 
+   93  grub2-mkconfig -o /boot/grub/grub.cfg
+   94  sudo grub2-mkconfig -o /boot/grub/grub.cfg
+   95  sudo reboot
+   96  cat /etc/default/grub 
+   97  sudo nano /etc/default/grub 
+   98  sudo reboot
+   99  sudo nano /etc/default/grub 
+  100  sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+  101  sudo reboot
+  102  sudo -u curator1 cat /data/mephi-2026/test.txt
+  103  namei -l /data/mephi-2026/
+  104  sudo setfacl -m g:curators:--x /data
+  105  sudo setfacl -m g:curators:rx /data/mephi-2026/
+  106  sudo setfacl -R -m g:curators:rx /data/mephi-2026/
+  107  sudo -u curator1 cat /data/mephi-2026/test.txt
+  108  sudo -u curator1 sh -c 'echo fail /data/mephi-2026/test.txt'
+  109  sudo  -u nobody ls /data/mephi-2026/
+  110  history 
+  111  history > history1.out
+  112  nano history1.out 
+  113  command -v tcpdump
+  114  sudo setcap cap_net_raw,cap_net_admin=eip "$(command -v tcpdump)"
+  115  getcap  /usr/sbin/tcpdump 
+  116  ls -l /usr/sbin/tcpdump 
+  117  sudo -u user1 tcpdump -i any -c 5
+  118  sudo -u user1 tcpdump
+  119  getemforce
+  120  getenforce
+  121  sestatus 
+  122  sudo setenforce 1
+  123  sudo nano /etc/selinux/config 
+  124  sudo chmod 755 /mephi-web
+  125  sudo chmod 644 /mephi-web/index.html
+  126  touch /mephi-web/index.html
+  127  sudo touch /mephi-web/index.html
+  128  sudo chmod 644 /mephi-web/index.html
+  129  sudo dnf install policycoreutils-python-utils
+  130  sudo restorecon -Rv /mephi-web
+  131  ls -Zd /mephi-web\
+  132  ls -Zd /mephi-web
+  133  ls -Z /mephi-web
+  134  sudo semanage fcontext -a -t httpd_sys_content_t '/mephi-web(/.*)?'
+  135  ls -Zd /mephi-web
+  136  ls -Z /mephi-web
+  137  sudo restorecon -Rv /mephi-web/
+  138  ls -Zd /mephi-web
+  139  ls -Z /mephi-web
+  140  sudo nano /etc/nginx/conf.d/mephi-web.conf
+  141  sudo nginx -t
+  142  sudo systemctl restart nginx
+  143  sudo nano /etc/nginx/conf.d/mephi-web.conf
+  144  curl -I http://localhost/
+  145  curl http://localhost
+  146  clear
+  147  curl -I http://localhost/
+  148  curl http://localhost > curl.out
+  149  sudo ausearch -m AVC -ts recent
+  150  getenforce 

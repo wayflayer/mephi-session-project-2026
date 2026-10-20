@@ -1,0 +1,4 @@
+    1  hostname -d
+    2  clear
+    3  hostname -f
+    4  ping -c 4 8.8.8.8 >> ping.out

@@ -1,0 +1,12 @@
+  151  sudo usermod -s /sbin/nologin curator1
+  152  sudo usermod -s /sbin/nologin curator2
+  153  getent passwd curator1
+  154  getent passwd curator2
+  155  sudo chage -M 90 curator1
+  156  sudo chage -M 90 curator2
+  157  sudo chage -M 90 user1
+  158  sudo chage -M 90 user2
+  159  sudo chage -M 90 user3
+  160  sudi chage -l user1
+  161  sudo chage -l user1
+  162  sudo nano /etc/security/pwquality.conf

@@ -1,0 +1,8 @@
+   40  sudo nano /etc/nginx/nginx.conf
+   41  clear
+   42  sudo systemctl start nginx
+   43  sudo systemctl enable nginx
+   44  sudo systemctl status nginx
+   45  ls
+   46  sudo journalctl -u nginx > journalctl.out
+   47  cat journalctl.out 

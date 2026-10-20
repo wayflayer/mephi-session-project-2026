@@ -1,0 +1,38 @@
+  163  echo "hello from student:372271" | sudo tee /mephi-web/index.html
+  164  sudo chown root:root /mephi-web/index.html
+  165  sudo chmod 644 /mephi-web/index.html
+  166  sudo restorecon -v /mephi-web/index.html 
+  167  sudo nginx -t
+  168  sudo systemctl reload nginx
+  169  curl http://localhost/
+  170  curl http://localhost/ > curl2.out
+  171  clear
+  172  curl http://localhost/ | grep "hello from student:372271"
+  173  nano curl2.out 
+  174  echo "Hello from Student:372271
+  175  echo 'Hello from Student:372271' | sudo tee /mephi-web/index.html
+  176  sudo chown root:root /mephi-web/index.html
+  177  sudo chmod 644 /mephi-web/index.html
+  178  sudo restorecon -v /mephi-web/index.html 
+  179  sudo nginx -t
+  180  sudo systemctl reload nginx
+  181  rm curl2.out 
+  182  curl http://localhost/ > curl2.out
+  183  nano curl2.out 
+  184  sudo systemctl reload nginx
+  185  sudo nginx -t
+  186  cat /mephi-web/index.html 
+  187  sudo nano /etc/nginx/conf.d/default.conf
+  188  sudo chmod -R 755 /mephi-web
+  189  sudo nginx -t
+  190  sudo systemctl restart nginx
+  191  sudo setenforce 0
+  192  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
+  193  sudo restorecon -Rv /mephi-web
+  194  sudo nano /etc/nginx/conf.d/default.conf 
+  195  sudo nano /etc/nginx/nginx.conf
+  196  sudo nginx -t
+  197  sudo systemctl restart nginx 
+  198  history > histry.out
+  199  curl http://localhost
+  200  history > history.out
